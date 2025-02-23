@@ -1,0 +1,331 @@
+/* ================================
+   🌟 BASE.CSS - Continuum Skin
+   Uses Variables from Mode-Specific CSS
+   ================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Metamorphous&display=swap');
+
+/* === Typography === */
+.bona-nova-regular { font-family: "Bona Nova", serif; font-weight: 400; font-style: normal; }
+.bona-nova-bold { font-family: "Bona Nova", serif; font-weight: 700; font-style: normal; }
+.bona-nova-regular-italic { font-family: "Bona Nova", serif; font-weight: 400; font-style: italic; }
+.metamorphous-regular { font-family: "Metamorphous", serif; font-style: normal; }
+
+/* === Global Variables (Defined in -mode.css) === */
+:root, .skin-continuum, .notheme {
+    /* Color Variables */
+    --color-text-primary: var(--color-base, #FFFFFF);
+    --color-text-secondary: var(--color-base--hover, #FFB84D);
+    --color-text-emphasized: var(--color-emphasized, #FFFFFF);
+    --color-text-muted: var(--color-subtle, #FF851B);
+    --color-placeholder: var(--color-placeholder, #FFB84D);
+    --color-link: var(--color-progressive, #FF851B);
+    --color-link-hover: var(--color-progressive--hover, #FFB84D);
+    --color-link-active: var(--color-progressive--active, #FF6300);
+    --color-link-focus: var(--color-progressive--focus, #FF851B);
+    --color-error: var(--color-error, #FF4500);
+    --color-success: var(--color-success, #177860);
+    --color-warning: var(--color-warning, #FFB84D);
+
+    /* Background Variables */
+    --background-primary: var(--background-color-base, #001F3F);
+    --background-secondary: var(--background-color-neutral, #002855);
+    --background-tertiary: var(--background-color-neutral-subtle, #001933);
+    --background-interactive: var(--background-color-interactive, #002B5C);
+    --background-inverted: var(--background-color-inverted, #101418);
+
+    /* Borders */
+    --border-primary: var(--border-color-base, #FF851B);
+    --border-hover: var(--border-color-progressive--hover, #FFB84D);
+    --border-active: var(--border-color-progressive--active, #FF6300);
+    --border-error: var(--border-color-error, #FF4500);
+
+    /* Shadows */
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    /* Opacity */
+    --opacity-disabled: 0.5;
+}
+
+/* === General Body === */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-primary);
+    color: var(--color-text-primary);
+    font-family: 'Bona Nova', serif;
+}
+
+/* === Headers === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Metamorphous', cursive;
+    color: var(--color-link-active);
+}
+
+/* === Links === */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+/* === Personal User Links === */
+#p-personal {
+    background-color: var(--background-tertiary);
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+#p-personal li {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+#p-personal a {
+    color: var(--color-link);
+    font-weight: bold;
+}
+
+#p-personal a:hover {
+    color: var(--color-link-hover);
+}
+
+/* === Main Structure === */
+.mw-header {
+    background-color: var(--background-secondary);
+    border-bottom: 3px solid var(--border-primary);
+}
+
+#mw-panel {
+    background-color: var(--background-secondary);
+}
+
+#content {
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-primary);
+    padding: 20px;
+    color: var(--color-text-primary);
+}
+
+.mw-body {
+    background-color: var(--background-primary);
+}
+
+/* === Table of Contents (TOC) === */
+#toc {
+    background-color: var(--background-interactive);
+    border: 2px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 10px;
+    color: var(--color-text-primary);
+}
+
+#toc h2 {
+    font-family: 'Metamorphous', cursive;
+    color: var(--color-link-active);
+}
+
+#toc a {
+    color: var(--color-link);
+}
+
+#toc a:hover {
+    color: var(--color-link-hover);
+}
+
+/* === Buttons === */
+.mw-ui-button {
+    background-color: var(--color-link);
+    color: var(--color-text-primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mw-ui-button:hover {
+    background-color: var(--color-link-hover);
+}
+
+/* === Notifications & Alerts === */
+.mw-notice {
+    background-color: var(--background-secondary);
+    color: var(--color-text-primary);
+    border-left: 4px solid var(--border-primary);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.mw-warning {
+    background-color: var(--color-warning);
+    color: var(--background-primary);
+}
+
+.mw-error {
+    background-color: var(--color-error);
+    color: var(--color-text-primary);
+}
+
+/* === Code Editors (Ace & CodeMirror) === */
+.ace_editor, .CodeMirror {
+    background-color: var(--background-tertiary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+}
+
+/* Syntax Highlighting */
+.ace_keyword, .cm-keyword { color: var(--color-link); font-weight: bold; }
+.ace_string, .cm-string { color: #7FDBFF; }
+.ace_comment, .cm-comment { color: #AAAAAA; font-style: italic; }
+.ace_variable, .cm-variable { color: #FFD700; }
+.ace_error, .cm-error { text-decoration: underline; text-decoration-color: var(--color-error); }
+
+/* Cursor & Selection */
+.CodeMirror-cursor { border-left: 1px solid var(--color-link); }
+.CodeMirror-selected { background-color: rgba(255, 133, 27, 0.3); }
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-link);
+    border-radius: 10px;
+    border: 3px solid var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-link-hover);
+}
+
+/* === Navbar === */
+#top-navbar {
+    background-color: var(--background-interactive);
+    border-bottom: 3px solid var(--border-primary);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-logo a {
+    font-family: 'Metamorphous', cursive;
+    color: var(--color-link);
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.navbar-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-links a:hover {
+    color: var(--color-link-hover);
+}
+
+/* === Responsive Navbar === */
+@media screen and (max-width: 768px) {
+    #top-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+}
+
+/* === Infobox === */
+.infobox {
+    border: 2px solid var(--border-primary);
+    background-color: var(--background-interactive);
+    color: var(--color-text-primary);
+    width: 250px;
+    font-size: 90%;
+    float: right;
+    margin: 0 0 1em 1em;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.infobox th {
+    background-color: var(--background-secondary);
+    color: var(--color-text-secondary);
+    text-align: center;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.infobox td {
+    padding: 5px;
+    border-top: 1px solid var(--border-primary);
+}
+
+.infobox caption {
+    font-family: 'Metamorphous', cursive;
+    font-size: 1.2em;
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+/* === Images === */
+img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 1;
+    border: none;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+img:hover {
+    opacity: 0.9;
+}
+
+/* SVG Glow */
+img[src$=".svg"] {
+    filter: drop-shadow(0 0 5px rgba(255, 133, 27, 0.7));
+}
+
+/* === Icons === */
+.continuum-icon {
+    background-color: #FFB800;
+}
+
+/* === Editing Interface === */
+.mw-editinginterface {
+    color: var(--color-text-primary);
+}
+
+.cdx-message--error {
+    background-color: var(--background-primary);
+}
+
+.vehide {
+    display: none;
+}
