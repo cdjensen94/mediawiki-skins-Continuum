@@ -390,3 +390,10 @@ body.ns-special .oo-ui-textInputWidget .oo-ui-inputWidget-input {
     background-image: url(data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Ctitle%3E eye %3C/title%3E%3Cpath d=%22M10 14.5a4.5 4.5 0 1 1 4.5-4.5 4.5 4.5 0 0 1-4.5 4.5M10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%222.5%22/%3E%3C/svg%3E);
         fill: @icon-color !important;
 }
+.oo-ui-messageWidget.oo-ui-messageWidget-block.oo-ui-flaggedElement-notice {
+    background-color: @bg-warning !important;
+    border-color: @accent-warning !important;
+    .oo-ui-labelElement-label {
+        color: @text-warning !important;
+    }
+}

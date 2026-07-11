@@ -129,8 +129,11 @@ input[type="checkbox"] {
 	}
 }
 label {
-	background-color: @accent-secondary !important;
-	background: @accent-secondary !important;
+	background-color: @accent-alt !important;
+	background: @accent-alt !important;
+}
+label[for="mw-input-wpTermsOfService"] a.external {
+	color: @bg-alt !important;
 }
 label#continuum-page-titlebar-toc-label {
 	border-radius: 8px;
@@ -318,4 +321,144 @@ textarea#wpBio {
 .continuum-search-box-input::placeholder {
   color: @text-subtle !important; /* <-- your desired placeholder color */
   opacity: 1; /* Firefox sometimes needs this */
+}
+/* MediaWiki HTMLForm / Special:Upload responsive fix */
+.mw-htmlform {
+	box-sizing: border-box;
+	max-width: 100%;
+	min-width: 0;
+}
+
+.mw-htmlform *,
+.mw-htmlform *::before,
+.mw-htmlform *::after {
+	box-sizing: border-box;
+}
+
+.mw-htmlform fieldset {
+	background-color: @bg-panel;
+	border: 1px solid @accent-alt;
+	border-radius: 8px;
+	padding: 12px;
+	font-family: @font-monospace;
+	font-size: @font-size-medium;
+
+	width: 100%;
+	max-width: 100%;
+
+	/* Important for fieldset overflow bugs */
+	min-width: 0;
+	min-inline-size: 0;
+}
+
+.mw-htmlform table {
+	width: 100%;
+	max-width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.mw-htmlform td {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+.mw-htmlform .mw-label {
+	width: 12rem;
+	padding-right: 0.75rem;
+	white-space: normal;
+}
+
+.mw-htmlform .mw-input {
+	width: auto;
+	max-width: 100%;
+	min-width: 0;
+}
+
+.mw-htmlform input:not([type='checkbox']):not([type='radio']),
+.mw-htmlform textarea,
+.mw-htmlform select {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	font: inherit;
+}
+
+.mw-htmlform textarea {
+	resize: vertical;
+}
+
+.mw-htmlform .mw-editTools,
+#mw-license-preview,
+#wpDestFile-warning {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-break: normal;
+}
+
+.mw-upload-editlicenses {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+@media screen and (max-width: 700px) {
+
+	.mw-htmlform table,
+	.mw-htmlform tbody,
+	.mw-htmlform tr,
+	.mw-htmlform td {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.mw-htmlform tr {
+		margin-bottom: 0.85rem;
+	}
+
+	.mw-htmlform .mw-label {
+		width: 100%;
+		padding-right: 0;
+		margin-bottom: 0.25rem;
+	}
+
+	.mw-htmlform .mw-label label {
+		display: block;
+	}
+
+	.mw-htmlform .mw-input {
+		width: 100%;
+	}
+
+	.mw-htmlform fieldset {
+		padding: 10px;
+	}
+}
+.mw-htmlform input[type='checkbox'],
+.mw-htmlform input[type='radio'] {
+	width: auto;
+	max-width: none;
+	min-width: 1.2em;
+	margin: 0 0.35em 0 0;
+	vertical-align: middle;
+}
+
+.mw-htmlform input[type='checkbox']+label,
+.mw-htmlform input[type='radio']+label {
+	display: inline;
+	vertical-align: middle;
+}
+.mw-htmlform table.mw-htmlform-nolabel {
+	table-layout: auto;
+}
+
+.mw-htmlform table.mw-htmlform-nolabel .mw-label {
+	display: none;
+}
+
+.mw-htmlform table.mw-htmlform-nolabel .mw-input {
+	width: 100%;
+}
+
+.mw-htmlform table.mw-htmlform-nolabel .mw-input label {
+	display: inline;
 }

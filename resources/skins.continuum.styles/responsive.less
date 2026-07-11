@@ -1,0 +1,328 @@
+/**
+ * Responsive / mobile-friendliness styles for Continuum skin.
+ *
+ * These rules improve the experience on small viewports (phones and small
+ * tablets) without affecting the desktop layout. They are scoped to a
+ * max-width breakpoint so they only apply below the tablet breakpoint.
+ *
+ * Breakpoints (defined via mediawiki.skin.variables.less):
+ *   @max-width-breakpoint-mobile  ~ 720px
+ *   @max-width-breakpoint-tablet  ~ 1000px
+ *
+ * Principles:
+ *  - Use relative units (em/rem) so layout scales with the user's font size.
+ *  - Enforce a minimum 44px tap-target size for interactive elements.
+ *  - Avoid horizontal page scroll; let only wide tables scroll internally.
+ *  - Keep content readable with appropriate line-length and spacing.
+ */
+
+@import './variables.less';
+@import './mixins.less';
+
+/* =========================================================
+ * 1. Viewport & root adjustments
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	html {
+		// Prevent iOS auto-text inflation when rotating to landscape.
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+	}
+
+	body {
+		// Use the smaller page-container padding on narrow screens.
+		padding: 0;
+		margin: 0;
+		// Improve readability on small screens.
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+/* =========================================================
+ * 2. Page container sizing
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	.mw-page-container {
+		// Remove the desktop max-width constraint so the page fills the viewport.
+		max-width: 100%;
+		// Use the smaller horizontal padding on phones.
+		padding-left: @padding-horizontal-page-container;
+		padding-right: @padding-horizontal-page-container;
+	}
+
+	.mw-page-container-inner {
+		// Single column layout below the tablet breakpoint.
+		// Any pinned columns (main menu / ToC / page tools) are collapsed
+		// into dropdowns by skins.continuum.js, so we don't need grid columns.
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.mw-content-container {
+		width: 100%;
+		max-width: 100%;
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+}
+
+/* =========================================================
+ * 3. Body content spacing & typography
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-mobile ) {
+	.continuum-body {
+		// Reduce the generous desktop padding on phones to keep content visible.
+		padding: 12px;
+		// Allow long words / URLs to wrap rather than forcing horizontal scroll.
+		overflow-wrap: break-word;
+		word-break: break-word;
+	}
+
+	.mw-body .firstHeading,
+	.continuum-page-titlebar h1 {
+		// Scale the page title down slightly on very narrow screens.
+		font-size: 1.5em;
+		line-height: 1.25;
+	}
+
+	#bodyContent {
+		// Slightly tighten the content line-length for readability on phones.
+		font-size: 0.95em;
+	}
+
+	// Make sure inline images never exceed the viewport width.
+	.mw-parser-output img,
+	.mw-body-content img {
+		max-width: 100% !important;
+		height: auto;
+	}
+
+	// Thumb / figure captions should wrap neatly.
+	figure[ typeof='mw:File' ],
+	.thumb {
+		max-width: 100%;
+
+		> img,
+		.mw-file-element {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+/* =========================================================
+ * 4. Header
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-mobile ) {
+	.continuum-header-container .mw-header {
+		// Tighter header padding on phones.
+		padding: 6px 8px;
+	}
+
+	.mw-logo {
+		// Allow the logo to shrink on very narrow screens instead of overflowing.
+		min-width: 0;
+
+		.mw-logo-container {
+			// Keep the logo within available space; the 120px cap from Logo.less
+			// already applies but we make sure it can shrink further if needed.
+			max-width: 100px;
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+	}
+
+	// Ensure all header buttons meet the 44px minimum tap-target size.
+	.continuum-header .cdx-button {
+		min-height: 44px;
+		min-width: 44px;
+	}
+}
+
+/* =========================================================
+ * 5. Navigation (main menu, page tools, tabs)
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	// The main menu becomes a dropdown below the tablet breakpoint.
+	// Make sure dropdown content doesn't overflow the viewport.
+	.continuum-main-menu,
+	.continuum-dropdown-content {
+		max-width: calc( 100vw - 1em );
+		box-sizing: border-box;
+	}
+
+	.continuum-menu-content-list {
+		// Remove any fixed widths so the menu can shrink to fit.
+		max-width: 100%;
+	}
+
+	// Page toolbar tabs: allow horizontal scroll instead of wrapping awkwardly.
+	.continuum-page-toolbar-container {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+
+		// Hide the scrollbar for a cleaner look while keeping scrollability.
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	#left-navigation,
+	#right-navigation {
+		// Keep navigation tabs on a single scrollable row.
+		flex-wrap: nowrap;
+		white-space: nowrap;
+	}
+}
+
+@media ( max-width: @max-width-breakpoint-mobile ) {
+	// Give tab links a comfortable tap target on phones.
+	.continuum-page-toolbar-container .mw-list-item a,
+	.menuTabs a {
+		padding: 8px 10px;
+		min-height: 44px;
+		box-sizing: border-box;
+	}
+}
+
+/* =========================================================
+ * 6. Tables — scroll horizontally instead of breaking layout
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	// Wrap wide tables in a horizontally scrollable container so they never
+	// force the whole page to scroll horizontally. We use display:block on
+	// the table itself only when it would overflow.
+	.mw-body-content,
+	.mw-parser-output {
+		table.wikitable,
+		table.mw-datatable,
+		.mw-json {
+			display: block;
+			max-width: 100%;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			// Keep the table visually intact.
+			border-collapse: collapse;
+		}
+	}
+}
+
+/* =========================================================
+ * 7. Footer
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	.mw-footer-container {
+		padding-top: 24px;
+		padding-bottom: 32px;
+	}
+
+	#footer-icons {
+		// Stack footer icons above the text links on small screens.
+		float: none;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin-bottom: 8px;
+
+		li {
+			float: none;
+			margin-left: 0;
+			margin-right: 0.5em;
+		}
+	}
+
+	#footer-places {
+		li {
+			float: none;
+			margin-right: 0.75em;
+		}
+	}
+}
+
+/* =========================================================
+ * 8. Forms & inputs
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-mobile ) {
+	// Make form inputs span the full width on phones for easier interaction.
+	.mw-body-content input[type='text'],
+	.mw-body-content input[type='search'],
+	.mw-body-content input[type='email'],
+	.mw-body-content input[type='password'],
+	.mw-body-content input[type='number'],
+	.mw-body-content textarea,
+	.mw-body-content select {
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		min-height: 44px;
+	}
+
+	// Buttons should be full-width on phones when they are primary actions.
+	.mw-body-content .cdx-button:not( .cdx-button--icon-only ):not( .continuum-header .cdx-button ) {
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+/* =========================================================
+ * 9. Pinnable elements (ToC, page tools, appearance)
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	// When the ToC / page tools unpin into dropdowns at narrow widths, make
+	// sure their content fits the viewport and is scrollable if long.
+	.continuum-pinnable-element,
+	.continuum-dropdown .continuum-dropdown-content {
+		max-width: calc( 100vw - 1em );
+		box-sizing: border-box;
+	}
+
+	// The ToC dropdown list can get very long; constrain and scroll it.
+	.continuum-toc {
+		max-height: 60vh;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+/* =========================================================
+ * 10. Pre / code blocks
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	.mw-body-content pre,
+	.mw-parser-output pre {
+		// Let long code lines scroll horizontally rather than forcing page scroll.
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		max-width: 100%;
+		white-space: pre;
+	}
+}
+
+/* =========================================================
+ * 11. Misc touch-friendliness
+ * ========================================================= */
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	// Remove hover-only effects that are awkward on touch devices.
+	// (Links still get :focus / :active styles elsewhere.)
+	.no-touch-hover-on-mobile:hover {
+		// intentional no-op placeholder class; components opt in if desired.
+	}
+
+	// Ensure a minimum 44px tap target for any list-item link inside menus.
+	.continuum-menu .mw-list-item a,
+	.continuum-menu-content-list .mw-list-item a {
+		min-height: 44px;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+	}
+}

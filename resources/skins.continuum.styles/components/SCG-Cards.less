@@ -1,0 +1,743 @@
+.cu-ccg-card-wrapper,
+.cu-ccg-card-wrap {
+  float: right;
+  width: 375px;
+  min-height: 525px;
+  margin: 0 0 1em 1em;
+  clear: right;
+  box-sizing: border-box;
+}
+.cu-ccg-card {
+  position: relative;
+  width: 375px;
+  height: 525px;
+  background: transparent;
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Metamorphous", Georgia, "Times New Roman", serif;
+  border-radius: 12px;
+}
+
+/* MediaWiki image cleanup */
+.cu-ccg-card .mw-file-description,
+.cu-ccg-card .mw-default-size,
+.cu-ccg-card .mw-file-element {
+  max-width: none;
+}
+
+.cu-card-layer {
+  position: absolute;
+  line-height: 0;
+}
+
+.cu-card-img,
+.cu-card-icon-img,
+.cu-cost-img,
+.cu-bottom-img {
+  display: block;
+}
+
+/* Layering */
+.cu-card-theme {
+  left: 0;
+  top: 0;
+  width: 375px;
+  height: 525px;
+  z-index: 1;
+}
+.cu-card-layer > p {
+	margin: 0px;
+}
+.cu-card-variant-panel {
+  display: none;
+}
+
+.cu-card-variant-panel.is-active {
+  display: block;
+}
+
+.cu-card-variant-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 375px;
+  margin: 0 0 6px 0;
+}
+
+.cu-card-variant-button {
+  appearance: none;
+  border: 1px solid #777777;
+  background: #202020;
+  color: #ffffff;
+  cursor: pointer;
+  font: 13px/1.2 sans-serif;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cu-card-variant-button.is-active {
+  background: #f0d48a;
+  border-color: #f0d48a;
+  color: #111111;
+}
+
+.cu-card-art {
+  position: absolute;
+  left: 54px;
+  top: 62px;
+  width: 270px;
+  height: 299px;
+  overflow: hidden;
+  background: #000000;
+  z-index: 10;
+  line-height: 0;
+}
+
+.cu-card-art-img {
+  display: block;
+  width: 270px;
+  height: 299px;
+}
+
+.cu-card-textbox {
+  position: absolute;
+  left: 84px;
+  top: 258px;
+  width: 203px;
+  height: 224px;
+  z-index: 20;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000000;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-family: "EB Garamond Regular", serif;
+  
+}
+
+.cu-card-description {
+  font-size: clamp(12px, 1.6vw, 21px);
+  line-height: 22px;
+}
+
+.cu-card-flavor {
+  margin-top: 6px;
+  padding-top: 5px;
+  border-top: 1px solid #aaaaaa;
+  color: #dddddd;
+  font-size: clamp(12px, 1.6vw, 21px);
+  line-height: 15px;
+  font-style: italic;
+}
+
+.cu-card-border {
+  left: 0;
+  top: 0;
+  width: 375px;
+  height: 525px;
+  z-index: 50;
+}
+.cu-card-titlebar {
+  left: 20px;
+  top: 18px;
+  width: 335px;
+  height: 42px !important;
+  z-index: 60;
+  overflow: hidden;
+}
+
+.cu-card-titlebar .mw-file-element {
+  width: 335px;
+  height: 42px !important;
+}
+
+.cu-card-crown {
+  left: 0px;
+  top: 0px;
+  width: 375px;
+  height: 109px;
+  z-index: 70;
+}
+
+.cu-card-gender {
+  position: absolute;
+  left: 28px;
+  top: 29px !important;
+  width: 24px;
+  height: 24px;
+  z-index: 95;
+  line-height: 0;
+}
+
+.cu-card-title-area {
+  position: absolute;
+  left: 54px;
+  top: 28px;
+  height: 28px;
+  z-index: 90;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.cu-card-title {
+  display: block;
+  color: #111111;
+  font-weight: bold;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  line-height: 31px;
+  text-shadow: 1px 1px 0 #ffffff;
+  overflow: visible;
+  font-size: 26px;
+  font-stretch: condensed;
+  white-space: nowrap;
+  transform-origin: left center;
+}
+
+.cu-card-title-area.cu-cost-slots-2 .cu-card-title {
+  letter-spacing: 0.4px;
+}
+
+.cu-card-gender {
+  position: absolute;
+  left: 28px;
+  top: 24px;
+  width: 28px;
+  height: 28px;
+  z-index: 90;
+  line-height: 0;
+}
+
+
+.cu-cost-slots-0 {
+  width: 296px;
+}
+
+.cu-cost-slots-1 {
+  width: 268px;
+}
+
+.cu-cost-slots-2 {
+  width: 230px;
+}
+
+.cu-cost-slots-3 {
+  width: 216px;
+}
+
+.cu-cost-slots-4 {
+  width: 190px;
+}
+
+.cu-cost-slots-5 {
+  width: 164px;
+}
+
+.cu-cost-img {
+	height: 26px;
+	width: 26px;
+}
+
+.cu-card-title-area[data-scg-title-fit="1"] {
+	--scg-title-font-size: 26px;
+}
+
+.cu-card-title-area[data-scg-title-fit="1"] .cu-card-title {
+	display: inline-block;
+	max-width: none;
+	font-size: var(--scg-title-font-size, 26px);
+	transform: none;
+	transform-origin: left center;
+	white-space: nowrap;
+}
+
+/* Cost icons */
+.cu-card-costs {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  height: 26px;
+  z-index: 95;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1px;
+  line-height: 0;
+}
+
+.cu-cost {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  line-height: 0;
+}
+
+.cu-cost span {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 32px;
+  height: 26px;
+  display: block;
+  color: #ffffff;
+  font-size: clamp(10px, 1.6vw, 18px);
+  line-height: 26px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 2px #000000;
+  z-index: 2;
+}
+/* Stat box images with number overlays */
+
+.cu-statbox {
+  position: absolute;
+  width: 84px;
+  height: 56px;
+  z-index: 100;
+  line-height: 0;
+}
+
+.cu-statbox-img {
+  display: block;
+  width: 84px;
+  height: auto;
+}
+
+.cu-statbox-value {
+  position: absolute;
+  top: 18px;
+  width: 71px;
+  height: 36px;
+  display: block;
+  color: #ffffff;
+  font-family: "Metamorphous", serif;
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000000;
+  z-index: 2;
+}
+
+/* Left stat boxes */
+.cu-statbox-left {
+  left: 0px;
+}
+.cu-statbox-left > p {
+  margin: 0;
+}
+.cu-statbox-left .cu-statbox-value {
+  left: 0px;
+  text-align: right;
+}
+
+/* Right stat boxes */
+.cu-statbox-right {
+  right: 0px;
+}
+.cu-statbox-right > p {
+  margin: 0;
+}
+.cu-statbox-right .cu-statbox-value {
+  right: 0px;
+  text-align: left;
+}
+
+/* Left stat positions */
+.cu-statbox-speed {
+	top: 296px;
+}
+.cu-statbox-mp {
+  top: 338px;
+}
+
+.cu-statbox-range {
+  top: 383px;
+}
+
+.cu-statbox-strength {
+  top: 425px;
+}
+
+/* Right stat positions */
+.cu-statbox-ap {
+  top: 318px;
+}
+
+.cu-statbox-armor {
+  top: 361px;
+}
+
+.cu-statbox-health {
+  top: 404px;
+}
+
+/* Bottom Icons */
+.cu-bottom-icon {
+  position: absolute;
+  bottom: 12px;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+  line-height: 0;
+}
+
+.cu-bottom-team {
+  left: 74px;
+}
+
+.cu-bottom-rarity {
+  left: 171px;
+}
+
+.cu-bottom-color {
+  right: 74px;
+}
+
+/* Optional hover */
+.cu-ccg-card:hover {
+  box-shadow: 0 0 18px rgba(255,255,255,0.45);
+}
+.cu-keyword-table {
+  position: relative;
+  width: 375px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  background: #181818;
+  border: 2px solid #777777;
+  color: #ffffff;
+  font-family: "EB Garamond Regular", Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.cu-keyword-row {
+  display: block;
+  min-height: 22px;
+  padding: 4px 7px;
+  border-bottom: 1px solid #555555;
+  box-sizing: border-box;
+}
+
+.cu-keyword-row:last-child {
+  border-bottom: 0;
+}
+
+.cu-keyword-name {
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+  color: #f0d48a;
+}
+
+.cu-keyword-text {
+  display: inline;
+  color: #ffffff;
+}
+
+.scg-card-query-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  clear: both;
+}
+.scg-card-filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px 12px;
+  margin: 0 0 1em 0;
+}
+
+.scg-card-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.scg-card-filter-field span {
+  font-weight: bold;
+}
+
+.scg-card-editor {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) 395px;
+  gap: 20px;
+  align-items: start;
+}
+
+.scg-card-add-form fieldset {
+  border: 1px solid #a2a9b1;
+  margin: 0 0 12px 0;
+  padding: 10px;
+}
+
+.scg-card-add-form legend,
+.scg-card-editor-field span {
+  font-weight: bold;
+}
+
+.scg-card-editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0 0 8px 0;
+}
+
+.scg-card-editor-field input,
+.scg-card-editor-field textarea,
+.scg-card-import-textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.scg-card-editor-field textarea {
+  min-height: 80px;
+}
+
+.scg-card-cost-editor-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 8px;
+}
+
+.scg-card-editor-preview {
+  float: none;
+  position: sticky;
+  top: 1em;
+  margin: 0;
+}
+
+.scg-card-editor-preview img[hidden] {
+  display: none;
+}
+
+.scg-card-editor-preview .cu-card-layer img {
+  display: block;
+  width: 100%;
+}
+
+.scg-preview-stat {
+  position: absolute;
+  z-index: 105;
+  color: #ffffff;
+  font-family: "Metamorphous", Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+.scg-preview-stat-speed { left: 47px; top: 314px; }
+.scg-preview-stat-mp { left: 47px; top: 356px; }
+.scg-preview-stat-range { left: 47px; top: 401px; }
+.scg-preview-stat-strength { left: 47px; top: 443px; }
+.scg-preview-stat-ap { right: 47px; top: 336px; }
+.scg-preview-stat-armor { right: 47px; top: 379px; }
+.scg-preview-stat-health { right: 47px; top: 422px; }
+
+.scg-card-import-form {
+  max-width: 1100px;
+}
+
+@media (max-width: 700px) {
+  .cu-ccg-card-wrapper,
+  .cu-ccg-card-wrap {
+    float: none;
+    width: 100%;
+    max-width: 375px;
+    margin: 0 auto 1em auto;
+  }
+
+  .scg-card-editor {
+    display: block;
+  }
+
+  .scg-card-editor-preview {
+    position: static;
+    margin: 1em auto;
+  }
+
+  .scg-card-cost-editor-row {
+    display: block;
+  }
+}
+/* Smaller card previews for Special:SCGCards grid */
+
+.scg-card-query-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 205px);
+  gap: 18px;
+  align-items: start;
+  justify-content: center;
+  margin: 1em 0;
+  padding: 8px;
+  background: @bg-alt !important;
+  border: 1px solid @accent-primary !important;
+  border-radius: 8px;
+}
+
+.scg-card-query-grid-item {
+  width: 205px;
+  height: 285px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: @bg-panel !important;
+  border: 1px solid @accent-primary !important;
+  padding: 8px;
+}
+
+.scg-card-query-grid-preview {
+  width: 188px;
+  height: 263px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scg-card-query-grid-preview .cu-ccg-card-wrap {
+  float: none;
+  clear: none;
+  width: 375px;
+  min-height: 525px;
+  margin: 0;
+  transform: scale(0.5);
+  transform-origin: top left;
+}
+
+.scg-card-query-grid-preview .cu-keyword-table {
+  display: none;
+}
+
+.scg-card-filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  margin: 0 0 1em 0;
+  padding: 12px;
+  border: 1px solid #777777;
+  background: #181818;
+  box-sizing: border-box;
+}
+
+.scg-card-filter-field {
+  display: inline-block;
+  min-width: 140px;
+}
+
+.scg-card-filter-field span {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.scg-card-filter-field input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.cu-ability-table {
+  clear: both;
+  width: 375px;
+  margin: 6px 0 0 0;
+  border: 1px solid #555555;
+  background: #151515;
+  color: #ffffff;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.cu-ability-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 6px;
+  padding: 5px 6px;
+  border-bottom: 1px solid #333333;
+}
+
+.cu-ability-row:last-child {
+  border-bottom: 0;
+}
+
+.cu-ability-name {
+  font-weight: bold;
+  color: #f0d48a;
+}
+
+.cu-ability-summary {
+  display: block;
+  color: #cccccc;
+  font-size: 12px;
+}
+
+.cu-ability-rules {
+  display: block;
+}
+
+.scg-card-ability-editor-row,
+.scg-card-status-editor-row {
+  border: 1px solid #c8ccd1;
+  padding: 8px;
+  margin: 0 0 10px 0;
+}
+
+.cu-info-table {
+  clear: both;
+  width: 375px;
+  margin: 6px 0 0 0;
+  border: 1px solid #555555;
+  border-collapse: collapse;
+  background: #151515;
+  color: #ffffff;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.cu-info-row {
+  border-bottom: 1px solid #333333;
+}
+
+.cu-info-row:last-child {
+  border-bottom: 0;
+}
+
+.cu-info-key {
+  width: 120px;
+  padding: 5px 8px;
+  text-align: left;
+  vertical-align: top;
+  font-weight: bold;
+  color: #f0d48a;
+  background: #1d1d1d;
+  border-right: 1px solid #333333;
+}
+
+.cu-info-value {
+  padding: 5px 8px;
+  vertical-align: top;
+}
+
+.cu-info-resource-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+
+.cu-info-resource {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.cu-info-resource-img {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.cu-info-resource-amount,
+.cu-info-resource-label {
+  line-height: 1.15;
+}

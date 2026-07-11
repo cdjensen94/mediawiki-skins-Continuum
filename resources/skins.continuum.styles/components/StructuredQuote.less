@@ -1,0 +1,50 @@
+.cu-structured-quote {
+	margin: 1.25rem 0;
+	padding: 1rem 1.25rem;
+	border-inline-start: 0.35rem solid var(--cu-accent, #8aa6ff);
+	background: color-mix(in srgb, var(--cu-surface, #111827) 92%, var(--cu-accent, #8aa6ff));
+	border-radius: 0.35rem;
+}
+
+.cu-structured-quote__text {
+	font-size: 1.08rem;
+	line-height: 1.65;
+	font-style: italic;
+}
+
+.cu-structured-quote__text::before {
+	content: "“";
+}
+
+.cu-structured-quote__text::after {
+	content: "”";
+}
+
+.cu-structured-quote__cite {
+	display: block;
+	margin-top: 0.75rem;
+	text-align: right;
+	font-size: 0.92rem;
+	font-style: normal;
+	opacity: 0.85;
+}
+
+.cu-structured-quote--divine {
+	border-inline-start-color: var(--cu-divine, #f3d675);
+}
+
+.cu-structured-quote--demonic {
+	border-inline-start-color: var(--cu-demonic, #c34242);
+}
+
+.cu-structured-quote--eldritch {
+	border-inline-start-color: var(--cu-eldritch, #8e6ad8);
+}
+
+.cu-structured-quote--imperial {
+	border-inline-start-color: var(--cu-imperial, #5ca0d3);
+}
+
+.cu-structured-quote--archive {
+	border-inline-start-color: var(--cu-archive, #9ca3af);
+}

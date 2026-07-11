@@ -7,6 +7,13 @@
     box-shadow: 0 2px 5px @shadow-color; /* Shadow effect */
     padding: 10px;
 }
+@media ( max-width: @max-width-breakpoint-mobile ) {
+    .continuum-header-container .mw-header,
+    .continuum-header-container .continuum-sticky-header {
+        // Tighter header padding on phones so content has more room.
+        padding: 6px 8px;
+    }
+}
 .continuum-header-container .mw-header #pt-userpage-2 {
    padding: 12px 5px 7px 5px; 
 }

@@ -1,3 +1,5 @@
+@import "../variables.less";
+
 .mw-footer-container {
 	padding-top: 50px;
 	padding-bottom: 82px;
@@ -63,4 +65,31 @@
 	margin: 0;
 	padding: 0.5em 0;
 	font-size: 0.75em;
+}
+
+// On small screens, stack footer icons and place links vertically so they
+// don't overflow horizontally.
+@media ( max-width: @max-width-breakpoint-tablet ) {
+	.mw-footer-container {
+		padding-top: 24px;
+		padding-bottom: 32px;
+	}
+	#footer-icons {
+		float: none;
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 8px;
+
+		li {
+			float: none;
+			margin-left: 0;
+			margin-right: 0.5em;
+		}
+	}
+	#footer-places {
+		li {
+			float: none;
+			margin-right: 0.75em;
+		}
+	}
 }

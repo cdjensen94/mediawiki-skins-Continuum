@@ -1,0 +1,463 @@
+.welcome {
+	text-align: center;
+	/* Fluid font-size: scales from ~2em on phones up to 4em on wide screens. */
+	font-size: clamp( 2em, 8vw, 4em );
+	line-height: 1.1;
+	word-wrap: break-word;
+}
+.emoji-trigger-wrap { margin-bottom: .5rem; }
+#emoji-trigger { margin-right: .5rem; }
+/* --- VoteNY: render as 👍1 --- */
+.vote-box {
+  background-color: transparent;   /* remove green box */
+  height: auto;
+  width: auto;
+  padding: 0;
+  display: inline-block !important;
+  align-items: center;
+}
+
+#PollVotes.vote-number {
+  color: inherit;            /* stop forcing white */
+  display: inline-block !important;
+  background-color: transparent; 
+  font-size: var(--font-size-medium) !important;
+  font-weight: 600;
+}
+.vote-box::before {
+  content: "👍";
+  display: inline-block;
+  font-size: var(--font-size-medium) !important;
+  line-height: 1;
+}
+
+#PollVotes.vote-number::before {
+  content: none !important;
+}
+
+/* Hide the Vote/unvote link (we’ll keep it functional via JS) */
+#Answer.vote-action {
+  display: none;
+}
+.ipa {
+    font-family: "EB Garamond", "DejaVu Serif", "Noto Serif", "Charis SIL", "Doulos SIL", serif;
+    font-style: normal;
+}
+.ooumb-box {
+    border-radius: 10px;
+    padding: 4px 16px;
+    margin: 0;
+}
+.ooumb-stack {
+    margin: 0 0 0.75em 0;
+}
+
+.ooumb-stack .ooumb-box + .ooumb-box {
+    margin-top: 6px;
+}
+
+
+/* space between stacked banners */
+.ooumb-box + .ooumb-box {
+    margin-top: 6px;
+}
+
+/* space between last banner and article content */
+.ooumb-box:last-of-type {
+    margin-bottom: 0.75em;
+}
+.divine-tree-scroll {
+	overflow: auto;
+	max-width: 100%;
+	max-height: 70vh;
+	padding: 1rem;
+	border: 1px solid #5a4f7a;
+	border-radius: 0.5rem;
+	background: rgba(20, 16, 35, 0.35);
+	/* Allow long Mermaid diagrams to scroll horizontally instead of breaking layout. */
+	-webkit-overflow-scrolling: touch;
+}
+
+.divine-tree-scroll .ext-mermaid svg {
+	min-width: 1200px;
+	width: auto;
+	min-height: 600px;
+	max-width: none;
+}
+.template-documentation {
+	background: var(--bg-panel);
+	border: 1px solid var(--accent-alt);
+	border-radius: 6px;
+	padding: 1rem;
+	margin-top: 2rem;
+}
+
+.documentation-header {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.documentation-links {
+	font-size: 0.85rem;
+	font-weight: normal;
+}
+
+.documentation-missing {
+	color: var(--status-error);
+	font-style: italic;
+}
+
+.template-example-preview {
+	overflow: auto;
+	max-width: 100%;
+	padding: 1rem;
+	border: 1px solid var(--accent-alt);
+	border-radius: 6px;
+	background: rgba(255,255,255,0.02);
+	margin: 1rem 0;
+	-webkit-overflow-scrolling: touch;
+}
+
+.template-example-preview .portable-infobox,
+.template-example-preview .infobox {
+	float: none !important;
+	margin: 0 auto !important;
+}
+
+.hatnote td.ooumb-main {
+    font-size: 16px !important;
+    background: transparent !important;
+}
+.hatnote td.ooumb-icon {
+    font-size: 16px !important;
+    background: transparent !important;
+}
+
+td {
+	background: var(--bg-alt);
+}
+th {
+	background: var(--bg-panel);
+}
+
+/* === Shared gallery styling === */
+.cu-gallery-card img,
+.cu-masonry-item img,
+.cu-featured-main-card img,
+.cu-featured-side-card img {
+  display: block;
+  width: auto;
+  height: auto;
+}
+.cu-gallery-grid,
+.cu-masonry-gallery,
+.cu-featured-gallery {
+  margin: 1.5rem 0;
+}
+
+.cu-gallery-card,
+.cu-masonry-item,
+.cu-featured-main-card,
+.cu-featured-side-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  /* `overflow: resize` triggers an unexpected resizer handle in some
+     browsers; use hidden so internal images clip to the rounded corners. */
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+}
+div.hatnote + p { display: none; }
+
+
+/* === Gallery Grid === */
+
+.cu-gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	width: 100%;
+}
+
+.cu-gallery-card {
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	/* Use vertical margin only so the card fills its grid track without
+	   horizontal overflow from margin + padding. */
+	margin: 0 0 8px;
+	padding: 16px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+	/* Required so the absolute-positioned .card-link overlay covers the card. */
+	position: relative;
+}
+.cu-gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--shadow-color);
+  background: var(--bg-light);
+}
+/* 🔥 THIS IS THE MAGIC */
+.image-card-img {
+
+  overflow: hidden;
+
+}
+
+/* Force image behavior */
+.image-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* ← Crop instead of stretch */
+  border: none;
+}
+
+.cu-gallery-caption {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.cu-gallery-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.cu-gallery-text {
+  font-size: 0.93rem;
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+/* === Masonry Gallery === */
+
+.cu-masonry-gallery {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.cu-masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+}
+
+.cu-masonry-caption {
+  padding: 0.8rem 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+/* === Featured Gallery === */
+
+.cu-featured-gallery {
+  display: grid;
+  /* The 260px min could overflow on phones; use 0 min and let the media
+     queries below collapse to a single column on narrow screens. */
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.cu-featured-main-card {
+  min-height: 100%;
+}
+
+.cu-featured-main-caption {
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.cu-featured-main-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.cu-featured-main-text {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  opacity: 0.92;
+}
+
+.cu-featured-side {
+  display: grid;
+  gap: 1rem;
+}
+
+.cu-featured-side-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cu-featured-side-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.cu-featured-side-title {
+  padding: 0.8rem 0.95rem 0.95rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* === Responsive === */
+/* === Responsive === */
+
+@media (max-width: 1000px) {
+  .cu-featured-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .cu-masonry-gallery {
+    column-count: 2;
+  }
+
+  .cu-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .cu-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cu-masonry-gallery {
+    column-count: 1;
+  }
+  
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  /* On very small phones, drop the category grid to a single column. */
+  .category-grid,
+  .category-grid.four-wide-cat-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Tighter card padding to maximise content area. */
+  .cu-gallery-card,
+  .cu-masonry-item,
+  .category-card {
+    padding: 12px;
+  }
+}
+
+.category-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 14px;
+	margin: 1em 0;
+}
+.category-grid.four-wide-cat-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr) !important;
+	gap: 14px;
+	margin: 1em 0;
+}
+.category-card {
+	background: var(--bg-alt);
+	border: 1px solid var(--accent-alt);
+	padding: 14px;
+	text-align: center;
+	border-radius: 10px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	/* Required so the absolute-positioned .card-link overlay covers the card. */
+	position: relative;
+	box-sizing: border-box;
+}
+
+.category-card:hover {
+	background: var(--bg-light);
+	border-color: var(--accent-alt);
+	transform: translateY(-2px);
+}
+/* Invisible full-card link */
+.category-card .card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+.cu-gallery-card .card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+/* Make sure content sits above background but below link */
+.category-card > *:not(.card-link) {
+  position: relative;
+  z-index: 1;
+}
+.cu-gallery-card > *:not(.card-link) {
+  position: relative;
+  z-index: 1;
+}
+.category-icon img {
+	margin-bottom: 8px;
+}
+
+.category-title {
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+.category-desc {
+	font-size: 0.9rem;
+	opacity: 0.8;
+}
+.mw-collapsible-toggle-default .mw-collapsible-text {
+    color: var(--text-subtle);
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.cu-gallery-grid > p,
+.cu-masonry-gallery > p,
+.cu-featured-gallery > p,
+.cu-featured-side > p,
+.category-grid > p,
+.cu-content-warnings > p,
+.hatnote > p,
+p.mw-empty-elt{
+  display: none;
+}
+.clickable-card {
+	cursor: pointer;
+}
+.mw-content-text .main-page_title {
+    width: 100%;
+    text-align: center;
+}
+
+#mw-content-text .main-page_title p {
+    margin: 0;
+}
+
+#mw-content-text .main-page_title img.mw-file-element {
+    max-width: 77%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media ( max-width: 700px ) {
+  /* The 77% rule can still feel cramped on phones; let the logo breathe. */
+  #mw-content-text .main-page_title img.mw-file-element {
+    max-width: 92%;
+  }
+}
+.cu-content-warnings + p:has(> br:only-child),
+.cu-content-warnings + p:has(> br:only-child) + p:has(> br:only-child) {
+	display: none;
+}
+/* Fallback clearfix for floated children */
+.template-documentation::after {
+	content: "";
+	display: block;
+	clear: both;
+}

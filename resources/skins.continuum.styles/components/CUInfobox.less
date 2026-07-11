@@ -1,0 +1,396 @@
+// ContinuumInfobox - Continuum theme-aware styling.
+// Uses CSS custom properties exported by the Continuum skin.
+
+@cu-infobox-bg:                 var( --bg-panel, #001933 );
+@cu-infobox-header-bg:          var( --bg-interactive, #002B5C );
+@cu-infobox-title-bg:           var( --bg-interactive, #002B5C );
+@cu-infobox-title-color:        var( --accent-primary, #FF851B );
+@cu-infobox-label-color:        var( --accent-alt, #FF6300 );
+@cu-infobox-border:             var( --accent-alt, var( --accent-primary, #FF851B ) );
+@cu-infobox-divider:            var( --accent-alt, #FF6300 );
+@cu-infobox-footer-bg:          var( --bg-main, #001F3F );
+@cu-infobox-data-bg:            var( --bg-main, #001F3F );
+@cu-infobox-data-hover-bg:      var( --bg-interactive, #002B5C );
+@cu-infobox-image-bg:           var( --bg-alt, #001933 );
+@cu-infobox-text:               var( --text-base, #f8f9fa );
+
+@cu-infobox-link:               var( --accent-primary, #FF851B );
+@cu-infobox-link-hover:         var( --accent-alt, #FF6300 );
+
+@cu-infobox-scroll-thumb:       var( --accent-alt, #FF851B );
+@cu-infobox-scroll-thumb-hover: var( --accent-primary, #FFB84D );
+@cu-infobox-scroll-track:       var( --bg-alt, #001933 );
+
+.continuum-feature-custom-font-size-clientpref-2 .cu-infobox {
+	max-width: 380px !important;
+}
+
+.cu-infobox {
+	float: right;
+	clear: right;
+	box-sizing: border-box;
+	width: 22rem;
+	max-width: 340px;
+	margin: 0 0 1rem 1rem;
+	padding: 12px;
+
+	background-color: @cu-infobox-bg;
+	color: @cu-infobox-text;
+	border: 2px solid @cu-infobox-border;
+	border-radius: 12px;
+
+	font-size: 0.875rem;
+	line-height: 1.35;
+	overflow: hidden;
+
+	p,
+	ul,
+	ol,
+	figure {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	ul,
+	ol {
+		padding-left: 1.25rem;
+	}
+
+	li + li {
+		margin-top: 0.15rem;
+	}
+
+	a {
+		color: @cu-infobox-link;
+	}
+
+	a:hover {
+		color: @cu-infobox-link-hover;
+	}
+
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: @cu-infobox-scroll-track;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: @cu-infobox-scroll-thumb;
+		border-radius: 5px;
+		border: 2px solid @cu-infobox-scroll-track;
+
+		&:hover {
+			background-color: @cu-infobox-scroll-thumb-hover;
+		}
+	}
+}
+
+.cu-infobox__header {
+	margin-bottom: 0.75rem;
+}
+
+.cu-infobox__title {
+	background-color: @cu-infobox-title-bg;
+	color: @cu-infobox-title-color;
+	font-family: var(--font-heading) !important;
+	font-size: 1.45em;
+	line-height: 1.15;
+	font-weight: bold;
+	border-radius: 12px;
+	text-align: center;
+	padding: 8px 12px;
+
+	p {
+		margin: 0;
+	}
+}
+
+.cu-infobox__figure {
+	margin: 0 0 0.75rem 0;
+	padding: 0;
+	background-color: @cu-infobox-image-bg;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.cu-infobox__image {
+	padding: 0 !important;
+	background-color: @cu-infobox-image-bg !important;
+	overflow: hidden;
+	text-align: center;
+
+	a,
+	.image,
+	.mw-file-description,
+	.mw-file-element,
+	figure,
+	.thumb,
+	.thumbinner,
+	.mw-halign-center,
+	.mw-default-size {
+		display: block !important;
+		width: 100% !important;
+		max-width: none !important;
+		box-sizing: border-box;
+	}
+
+	img,
+	img.mw-file-element {
+		display: block !important;
+		width: 100% !important;
+		max-width: none !important;
+		height: auto !important;
+		box-sizing: border-box;
+		margin: 0 !important;
+
+		border: 2px solid @cu-infobox-border !important;
+		border-radius: 4px;
+		background-color: @cu-infobox-image-bg !important;
+	}
+}
+
+.cu-infobox__caption {
+	padding: 0.45rem 0.6rem;
+	background-color: @cu-infobox-data-bg;
+	color: @cu-infobox-text;
+	font-family: var(--font-heading);
+	font-size: 0.85em;
+	text-align: center;
+	border-top: 1px solid @cu-infobox-divider;
+
+	p {
+		margin: 0;
+	}
+}
+
+.cu-infobox__section {
+	margin-top: 0.75rem;
+	background-color: @cu-infobox-data-bg;
+	border: 1px solid @cu-infobox-divider;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.cu-infobox__section-title {
+	margin: 0;
+	padding: 0.45rem 0.65rem;
+
+	font-family: var(--font-heading) !important;
+	
+	background-color: @cu-infobox-header-bg;
+	color: @cu-infobox-title-color;
+	border-radius: 6px 6px 0 0;
+	font-size: 1.05em;
+	line-height: 1.2;
+	font-weight: bold;
+	text-align: center;
+}
+
+.cu-infobox__rows {
+	margin: 0;
+	padding: 0;
+}
+
+.cu-infobox__row {
+	display: flex;
+	align-items: stretch;
+	gap: 0;
+
+	background-color: @cu-infobox-data-bg;
+	color: @cu-infobox-text;
+	border-top: 1px solid @cu-infobox-divider;
+
+	&:hover {
+		background-color: @cu-infobox-data-hover-bg;
+	}
+}
+
+.cu-infobox__label {
+	box-sizing: border-box;
+	min-width: 120px;
+	max-width: 35%;
+	flex: 1 1 35%;
+
+	font-family: var(--font-body);
+	
+	margin: 0;
+	padding: 0.45rem 0.6rem;
+
+	text-align: left;
+	font-weight: bold;
+	color: @cu-infobox-label-color;
+}
+
+.cu-infobox__value {
+	box-sizing: border-box;
+	min-width: 60%;
+	flex: 2 1 65%;
+
+	margin: 0;
+	padding: 0.45rem 0.6rem;
+
+	font-family: var(--font-body);
+
+	text-align: left;
+	overflow-wrap: anywhere;
+	color: @cu-infobox-text;
+}
+.cu-infobox__label,
+.cu-infobox__value {
+	font-size: 0.95em;
+}
+.cu-infobox__value .cu-measurement-converted {
+	border-bottom: 1px dotted @cu-infobox-label-color;
+	cursor: help;
+}
+
+.cu-infobox__image .mw-broken-media {
+	display: block;
+	padding: 1rem;
+	color: @cu-infobox-label-color;
+	background-color: @cu-infobox-data-bg;
+	border: 1px dashed @cu-infobox-border;
+}
+
+.cu-infobox__footer {
+	background-color: @cu-infobox-footer-bg;
+	color: @cu-infobox-text;
+	border-top: 1px solid @cu-infobox-border;
+	padding: 0.5rem 0.65rem;
+}
+
+body:not(.ve-active) .cu-infobox {
+	background-color: @cu-infobox-bg;
+	color: @cu-infobox-text;
+	border-color: @cu-infobox-border;
+}
+
+@media ( max-width: 768px ) {
+	.cu-infobox {
+		float: none;
+		clear: both;
+		width: auto;
+		max-width: none;
+		margin: 1rem 0;
+	}
+
+	.cu-infobox__row {
+		display: block;
+	}
+
+	.cu-infobox__label,
+	.cu-infobox__value {
+		display: block;
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+	}
+
+	.cu-infobox__label {
+		padding-bottom: 0.2rem;
+	}
+
+	.cu-infobox__value {
+		padding-top: 0.2rem;
+	}
+}
+.cu-infobox+p {
+	margin: 0;
+	padding: 0;
+}
+
+.cu-infobox+p br {
+	display: none;
+}
+.cu-infobox__media {
+	position: relative;
+	margin: 0 0 0.75rem 0;
+	padding: 0;
+	background-color: @cu-infobox-image-bg;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.cu-infobox__media-tabs {
+	position: relative;
+	z-index: 10;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	gap: 0;
+
+	width: 100%;
+	padding: 0.35rem 0.35rem 0.3rem;
+
+	background-color: @cu-infobox-bg;
+	border-bottom: 2px solid @cu-infobox-border;
+}
+
+.cu-infobox__media-tab {
+	position: relative;
+	z-index: 11;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	box-sizing: border-box;
+	min-width: 5.25rem;
+	max-width: 100%;
+
+	margin: 0;
+	padding: 0.45rem 0.65rem;
+
+	background-color: @cu-infobox-header-bg;
+	color: @cu-infobox-text;
+
+	border: 1px solid @cu-infobox-border;
+	border-radius: 0;
+
+	font: inherit;
+	font-size: 0.84em;
+	font-weight: 600;
+	line-height: 1.15;
+	text-align: center;
+	white-space: nowrap;
+
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.cu-infobox__media-tab:hover,
+.cu-infobox__media-tab:focus {
+	background-color: @cu-infobox-data-hover-bg;
+	color: @cu-infobox-title-color;
+	outline: 2px solid @cu-infobox-label-color;
+	outline-offset: -2px;
+}
+
+.cu-infobox__media-tab.is-active {
+	background-color: @cu-infobox-label-color;
+	color: @cu-infobox-bg;
+}
+
+.cu-infobox__media-panel {
+	position: relative;
+	z-index: 1;
+
+	margin: 0;
+	padding: 0;
+}
+
+.cu-infobox__media-panel[hidden] {
+	display: none !important;
+}
+.cu-infobox__media-tabs {
+	position: relative;
+	z-index: 2;
+}
+
+.cu-infobox__media {
+	position: relative;
+}

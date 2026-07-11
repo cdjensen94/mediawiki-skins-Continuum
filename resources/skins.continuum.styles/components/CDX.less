@@ -1,82 +1,50 @@
-@import '../variables.less';
-.cdx-message--error {
-    background-color: @status-error !important;
-    color: @text-base !important;
-    border: 1px solid @accent-alt !important;
-    border-radius: 8px;
-    padding: 12px;
-    font-family: @font-monospace;
-    font-size: @font-size-medium;
-    margin: 12px 0;
+.mw-special-CreateAccount .mw-htmlform-field-HTMLCheckField .cdx-checkbox,
+.mw-special-CreateAccount .mw-htmlform-field-HTMLCheckField {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5em;
 }
-.cdx-message--warning {
-    background-color: @status-warning !important;
-    color: @text-base !important;
-    border: 1px solid @accent-alt !important;
-    border-radius: 8px;
-    padding: 12px;
-    font-family: @font-monospace;
-    font-size: @font-size-medium;
-    margin: 12px 0;
-}
-.cdx-button {
-    background-color: @bg-button !important;
-    color: @text-base;
-    border: 1px solid @accent-alt;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-family: @font-monospace;
-    font-size: @font-size-medium;
-    cursor: pointer;
-}
-.cdx-button:enabled {
-    background: @bg-button !important;
-    color: @text-base;
-    border: 1px solid @accent-alt;
-    border-radius: 8px;
-    padding: 2px;
-    font-family: @font-monospace;
-    font-size: @font-size-medium;
-    cursor: pointer;
-}
-.uls-trigger.cdx-button span {
-    color: @text-base;
 
+.mw-special-CreateAccount .mw-htmlform-field-HTMLCheckField .cdx-checkbox__icon {
+	flex: 0 0 auto;
+	margin-top: 0.2em;
+}
 
+.mw-special-CreateAccount .mw-htmlform-field-HTMLCheckField .cdx-checkbox__label {
+	display: block;
+	flex: 1 1 auto;
+	min-width: 0;
+	line-height: 1.4;
 }
-a[data-mw="interface"], input[role="button"] {
-    background: @bg-button !important;
-    background-color: @bg-button !important;
-    border-radius: 8px;
+/* Continuum signup: keep Codex checkbox icon and long label aligned horizontally. */
+.mw-special-CreateAccount .cdx-checkbox {
+	display: grid !important;
+	grid-template-columns: auto minmax(0, 1fr);
+	grid-template-rows: auto;
+	column-gap: 0.55em;
+	align-items: start;
 }
-#ca-unwatch a {
-    color: @text-base !important;
+
+.mw-special-CreateAccount .cdx-checkbox__input {
+	grid-column: 1;
+	grid-row: 1;
 }
-#ca-watch a {
-    color: @text-base !important;
+
+.mw-special-CreateAccount .cdx-checkbox__icon {
+	grid-column: 1;
+	grid-row: 1;
+	margin-top: 0.2em;
 }
-.continuum-menu-content  {
-    a {
-        color: @accent-primary !important;
-    }
-    a:visited {
-        color: @accent-secondary !important;
-    }
-    a:hover {
-        color: @accent-hover !important;
-    }
+
+.mw-special-CreateAccount .cdx-checkbox__label {
+	grid-column: 2;
+	grid-row: 1;
+	display: block;
+	min-width: 0;
+	margin: 0;
+	line-height: 1.4;
 }
-.continuum-dropdown input[role="button"] {
-    background: @bg-button !important;
-    background-color: @bg-button !important;
-    border-radius: 8px;
-}
-#continuum-user-links-dropdown-label {
-    border-radius: 8px;
-}
-a.search-toggle {
-    border-radius: 8px !important;
-}
-.continuum-search-box {
-    border-radius: 8px !important;
+
+.mw-special-CreateAccount .cdx-checkbox__label a {
+	white-space: nowrap;
 }

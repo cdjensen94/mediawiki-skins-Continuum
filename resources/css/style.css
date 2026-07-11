@@ -1068,6 +1068,32 @@ body:not(.ve-active) .portable-infobox {
     height: 100vh;
 }
 
+/* Keep the main columns from stretching each other vertically. */
+.mw-page-container-inner {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mw-content-container {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.mw-content-container > .mw-body {
+    min-height: 0;
+    height: auto;
+}
+
+.continuum-column-start,
+.continuum-column-end {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.continuum-pinned-container {
+    max-height: inherit;
+}
+
 /* Header */
 .mw-header {
     background-color: var(--color-medium-slate);

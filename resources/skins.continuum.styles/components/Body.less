@@ -21,6 +21,11 @@ body {
     padding: 20px; // Add some padding for better spacing
     border: 2px solid @accent-primary; // Add a border for emphasis
     border-radius: 8px; // Rounded corners for a modern look
+    height: auto !important;
+    // Allow the body box to shrink on small screens instead of forcing
+    // horizontal scroll. Box-sizing keeps the border inside the available width.
+    box-sizing: border-box;
+    max-width: 100%;
 }
 .theme-ubla-night .continuum-body {
     .mixin-biolume-breathe();
@@ -135,4 +140,32 @@ a:hover {
 
 .mw-empty-elt + p > br:first-child {
 	display: none;
+}
+#bodyContent {
+
+}
+/* Keep the main columns from stretching each other vertically. */
+.mw-page-container-inner {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mw-content-container {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.mw-content-container > .mw-body {
+    min-height: 0;
+    height: auto;
+}
+
+.continuum-column-start,
+.continuum-column-end {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.continuum-pinned-container {
+    max-height: inherit;
 }

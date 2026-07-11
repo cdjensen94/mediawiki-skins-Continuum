@@ -2,6 +2,34 @@
 // Grid layout
 //
 
+// Mobile-first single column layout. Below the desktop breakpoint the page
+// is a single column; pinned sidebars (main menu, ToC, page tools) collapse
+// into dropdowns via skins.continuum.js, so no grid columns are needed.
+@media ( max-width: ( @min-width-breakpoint-desktop - 1px ) ) {
+	.mw-page-container-inner {
+		display: flex;
+		flex-direction: column;
+		column-gap: 0;
+	}
+
+	.continuum-sitenotice-container,
+	.continuum-column-start,
+	.continuum-column-end,
+	.mw-content-container,
+	.mw-footer-container {
+		width: 100%;
+		max-width: 100%;
+		grid-area: auto;
+	}
+
+	// Hide the empty sidebar columns on narrow screens so they don't add
+	// stray whitespace. They are populated/unpinned by JS as dropdowns.
+	.client-js .continuum-column-start:empty,
+	.client-js .continuum-column-end:empty {
+		display: none;
+	}
+}
+
 @media ( min-width: @min-width-breakpoint-desktop ) {
 	.mw-page-container-inner {
 		display: grid;
@@ -114,6 +142,7 @@
 
 		#bodyContent {
 			grid-area: content;
+			height: auto;
 		}
 
 		.continuum-column-end {

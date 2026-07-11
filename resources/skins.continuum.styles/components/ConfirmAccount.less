@@ -1,0 +1,87 @@
+label[type="wpToS"] a {
+    color: @color-warning
+}
+div.mw-confirmaccount-request-intro {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    padding: 18px 22px;
+    border: 1px solid @accent-alt !important;
+    border-radius: 8px;
+    background: linear-gradient(135deg, @bg-main, transparent 42%), @bg-light !important;
+    color: @text-base !important;
+}
+form.mw-confirmaccount-request-form, form.mw-confirmaccount-request-form fieldset {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    padding: 18px 22px;
+    border: 1px solid @accent-alt !important;
+    border-radius: 8px;
+    background: linear-gradient(135deg, @bg-main, transparent 42%), @bg-light !important;
+    color: @text-base !important;
+
+    table tbody {
+        border-radius: 8px;
+        border: 2px solid @accent-primary;
+        tr::first-child {
+            border-radius: 8px 0px;
+        }
+    }
+
+}
+.mw-confirmaccount-request-form {
+    textarea#wpBio, textarea#wpNotes, textarea#wpUrls {
+        background-color: @bg-alt !important;
+        color: @accent-light !important;
+    }
+    input#wpUploadFile {
+        background-color: @bg-alt !important;
+        color: @accent-light !important;
+        border: 1px solid @accent-alt;
+        border-radius: 4px;
+        padding: 0.25rem;
+
+        &::file-selector-button {
+            background-color: @bg-button !important;
+            color: @text-base !important;
+            border: 1px solid @accent-alt;
+            border-radius: 4px;
+            padding: 0.35rem 0.75rem;
+            margin-right: 0.75rem;
+            cursor: pointer;
+        }
+
+        &::file-selector-button:hover {
+            background-color: @accent-hover !important;
+        }
+    }
+    input#wpBirthDate {
+        background-color: @bg-light !important;
+        color: @accent-light !important;
+    }
+    input[type="submit"].webfonts-changed {
+        background-color: @bg-button !important;
+        color: @text-base !important;
+    }
+    div div{
+        background: @bg-panel !important;
+        color: @accent-light !important;
+    }
+}
+#file-upload-button {
+    background: @bg-button !important;
+    border-radius: 4px !important;
+    border: 1px solid @accent-primary !important;
+    color: @accent-light !important;
+}
+.mw-confirmaccount-request-form input[type='text'], .mw-confirmaccount-request-form input[type='email'], .mw-confirmaccount-request-form input[type='date'], .mw-confirmaccount-request-form input[type='file'], .mw-confirmaccount-request-form select, .mw-confirmaccount-request-form textarea {
+    width: 100%;
+    max-width: 100%;
+    border: 2px solid @accent-primary !important; 
+    border-radius: 8px !important;
+    border: 1px solid @accent-primary;
+    background: @bg-alt !important;
+    color: @accent-light !important;
+}
+legend {
+    color: @accent-alt !important;
+}
